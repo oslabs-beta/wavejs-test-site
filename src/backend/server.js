@@ -1,8 +1,9 @@
 const express = require('express');
 const path = require('path');
-const WaveJS = require('wave.js');
+const WaveJS = require('@wave.js/wave.js');
 
 const app = express();
+
 const server = new WaveJS();
 
 const port = 8000;
