@@ -20,10 +20,26 @@ body {
   height: 150px;
 }
 
-.players {
+.videoPlayers {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.player {
+  margin: 30px;
+}
+
+@media (max-width: 1300px) {
+  .videoPlayers {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+/* .players {
   display: flex;
   flex-direction: row;
-}
+} */
 
 /* .LiveStream {
   max-width: 40%;
