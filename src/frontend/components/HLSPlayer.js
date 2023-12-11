@@ -13,7 +13,7 @@ export default function HLSPlayer({ streamKey }) {
       }}
     >
       <source
-        src={`http://localhost:3000/wavejs/${streamKey}/manifest.m3u8`}
+        src={`http://localhost:3000/wavejs/live/${streamKey}/manifest.m3u8`}
         type="application/x-mpegURL"
       />
     </video>

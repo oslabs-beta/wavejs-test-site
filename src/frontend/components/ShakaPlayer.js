@@ -13,7 +13,7 @@ export default function ShakaWrapper({ streamKey }) {
     ß;
 
     async function loadAsset() {
-      const streamLocation = `http://localhost:3000/wavejs/${streamKey}/manifest.mpd`;
+      const streamLocation = `http://localhost:3000/wavejs/live/${streamKey}/manifest.mpd`;
       // Load an asset.
       await player.load(streamLocation);
 
