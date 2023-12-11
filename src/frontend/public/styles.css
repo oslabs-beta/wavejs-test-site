@@ -1,0 +1,42 @@
+* {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: black;
+  color: white;
+  font-family: 'Poppins', sans-serif;
+}
+
+.headerImg {
+  margin: 50px;
+  display: flex;
+  justify-content: center;
+}
+
+.headerImg img {
+  height: 150px;
+}
+
+.players {
+  display: flex;
+  flex-direction: row;
+}
+
+/* .LiveStream {
+  max-width: 40%;
+  display: flexbox;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.header {
+  display: flex;
+  align-items: 'center';
+  justify-content: 'space-around';
+  margin: 0;
+  font-family: Arial;
+  background-color: white;
+} */
