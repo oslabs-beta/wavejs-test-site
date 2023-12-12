@@ -1,77 +1,32 @@
 import React, { useRef, useEffect } from 'react';
 import ShakaPlayer from 'shaka-player-react';
 import { browserName } from 'react-device-detect';
+import HLSPlayer from './components/HLSPlayer.js';
+import ShakaWrapper from './components/ShakaPlayer.js';
 
 export default function App() {
+  const streamKeys = ['TestUser', 'TestUser1', 'TestUser2', 'TestUser3'];
+
+  const currentStreams = [];
+
+  streamKeys.forEach((key) => {
+    currentStreams.push(
+      <div className="player">
+        {browserName === 'Safari' ? (
+          <HLSPlayer streamKey={key} />
+        ) : (
+          <ShakaWrapper streamKey={key} />
+        )}
+      </div>
+    );
+  });
+
   return (
     <div>
-      <h1
-        style={{
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'space-around',
-        }}
-      >
-        Front End Proof of Concept
-      </h1>
-      <div
-        style={{
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'space-around',
-        }}
-      >
-        We're putting a video player here
+      <div className="headerImg">
+        <img src="./public/DemoSite_Logo.png" />
       </div>
-
-      {browserName === 'Safari' ? <HLSVideo /> : <ShakaWrapper />}
+      <div className="videoPlayers">{currentStreams}</div>
     </div>
   );
 }
-
-function HLSVideo() {
-  return (
-    <video
-      width="620"
-      controls
-      autoPlay
-      style={{
-        display: 'block',
-        marginLeft: 'auto',
-        marginRight: 'auto',
-      }}
-    >
-      <source
-        src="http://localhost:3000/wavejs/TestUser/manifest.m3u8"
-        //src="http://localhost:3000/wavejs/mvp-demo/manifest.m3u8"
-        type="application/x-mpegURL"
-      />
-      {/* <source src="https://archive.org/download/ElephantsDream/ed_hd.ogv" type="video/ogg" /> */}
-    </video>
-  );
-}
-
-const ShakaWrapper = () => {
-  const controllerRef = useRef(null);
-
-  useEffect(() => {
-    const {
-      /** @type {shaka.Player} */ player,
-      /** @type {shaka.ui.Overlay} */ ui,
-      /** @type {HTMLVideoElement} */ videoElement,
-    } = controllerRef.current;
-
-    async function loadAsset() {
-      // Load an asset.
-      //await player.load('http://localhost:3000/wavejs/TestUser/manifest.mpd');
-      await player.load('http://localhost:3000/wavejs/mvp-demo/manifest.mpd');
-
-      // Trigger play.
-      videoElement.play();
-    }
-
-    loadAsset();
-  }, []);
-
-  return <ShakaPlayer ref={controllerRef} />;
-};

@@ -1,0 +1,37 @@
+* {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: black;
+  color: white;
+  font-family: 'Poppins', sans-serif;
+}
+
+.headerImg {
+  margin: 50px;
+  display: flex;
+  justify-content: center;
+}
+
+.headerImg img {
+  height: 150px;
+}
+
+.videoPlayers {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.player {
+  margin: 30px;
+}
+
+@media (max-width: 1300px) {
+  .videoPlayers {
+    display: flex;
+    flex-direction: column;
+  }
+}
