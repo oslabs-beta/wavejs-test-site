@@ -39,7 +39,9 @@ app.use(express.static(path.join(__dirname, '../frontend')));
 server.updateMediaDir(path.join(__dirname, 'media'));
 server.updateOutputProtocol('hls');
 server.updateHLSOutput({ hlsListSize: 0 });
-server.updateInputSettings({ endpoint: 'wavejs' });
+server.updateInputSettings({
+  endpoint: 'wavejs',
+});
 server.updateOutputSettings({ endpoint: 'wavejs', port: 3000 });
 
 server.listen();

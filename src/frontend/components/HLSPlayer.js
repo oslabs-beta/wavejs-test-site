@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default function HLSPlayer({ streamKey }) {
+export default function HLSPlayer({ streamSource }) {
   return (
     <video
       width="620"
@@ -13,7 +13,8 @@ export default function HLSPlayer({ streamKey }) {
       }}
     >
       <source
-        src={`http://localhost:3000/wavejs/live/${streamKey}/manifest.m3u8`}
+        src={streamSource}
+        // src={`http://localhost:3000/wavejs/live/${streamKey}/manifest.m3u8`}
         type="application/x-mpegURL"
       />
     </video>
